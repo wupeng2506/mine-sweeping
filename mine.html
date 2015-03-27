@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>mine</title>
+
+<script type="text/javascript" src="js/event.js"></script>
+</head>
+<body onload="loadScript('js/main.js',test);" style="background:black" >
+<center id="mainplace">
+</center>
+<script type="text/javascript">
+function loadScript(url, callback){
+var script = document.createElement("script");
+script.type = "text/javascript";
+if(script.readyState){
+script.onreadystatechange = function(){
+if(script.readyState == "loaded"||script.readyState == "complete"){
+script.onreadystatechange = null;
+callback();
+}
+};
+}else{
+script.onload = function(){
+callback();
+};
+}
+script.src = url;
+document.getElementsByTagName("head")[0].appendChild(script);
+}
+function test(){
+makeMap(8);
+setMines(8);
+setNums(8);
+}
+</script>
+</body>
+</html>
+
